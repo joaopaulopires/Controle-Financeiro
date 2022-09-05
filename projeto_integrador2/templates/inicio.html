@@ -1,0 +1,73 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load("current", {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Categoria', 'Despesas'],
+      ['essenciais',    1395.00],
+      ['não essenciais',  220.0],
+      ['investimentos',   118.0],
+      ['não atribuídos',  767.0]
+    ]);
+
+    var options = {
+      title: 'Despesas por categoria',
+      pieHole: 0.6,
+      pieSliceText: 'none',
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+    chart.draw(data, options);
+  }
+</script>
+
+{% block content %}
+
+
+
+<!-- BEM VINDO -->
+
+
+<div>
+    <h1>Bom dia, Usuário</h1>
+</div>
+
+<!-- RESUMO DE SALDO//DESPESA//RECEITAS  *****isso será um stands*****-->
+<div class="PESQUISAR" id="saldo">
+    <div>
+        <!--label saldo-->
+        <!--valor saldo-->
+        <div>
+            <div>
+                <img>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+
+<!-- BOTÕES DE AÇÃO RÁPIDA -->
+
+<div>
+    <a href="/menu/receita/receita_cadastro/"><button type="button" class="btn btn-primary btn-lg">+</button></a>
+    <a href="/menu/despesas/despesas_cadastro/"><button type="button" class="btn btn-primary btn-lg">-</button></a>
+</div>
+
+
+<!-- CONTAS A PAGAR -->
+
+
+
+<!-- DESPESAS POR CATEGORIA -->
+
+<div>
+    <div id="donutchart" style="width: 300px; height: 300px;"></div>
+</div>
+
+<!-- BLOG -->
+<!-- cards bootstrap deslizando horizontalmente -->
+
+
+{% endblock %}

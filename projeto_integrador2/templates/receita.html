@@ -1,0 +1,53 @@
+{% if user.is_authenticated %}
+<!--Página receita-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}nome do site{% endblock %}</title>
+</head>
+
+<nav>
+
+    <a href="/menu/"> <button type="submit">Menu</button> </a>
+</nav>
+<div class="principal">
+    <h2>Receita</h2>
+    <nav><a href="receita_cadastro/"> <button type="button">Novo</button></a></nav>
+    <div>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+
+                    <th>Recorrente</th>
+                    <th>Produto</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                    <th>Total Recebido</th>
+                </tr>
+                {% for evento_receita in eventos %}
+                <tr>
+                    <td>{{ evento_receita.id }}</td> <!--Id-->
+                    <td>{{ evento_receita.titulo }}</td> <!--Produto-->
+                    
+                    <td>{{ evento_receita.recorrente }}</td> <!--Recorrente-->
+                    <td>{{ evento_receita.produto }}</td> <!--Produto-->
+                    <td>{{ evento_receita.valor }}</td> <!--Valor-->
+                    <td>{{ evento_receita.status }}</td> <!--Status-->
+                    
+                    
+                    
+                    <td>{{ orcamento.total_receber }}</td> <!--total_receber-->
+                    <td><a href="receita_cadastro/?id={{ evento_receita.id }}">Editar</a></td>
+                    <td><a href="delete/{{ evento_receita.id }}/">Excluir</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+    </div>
+</div>
+</header>
+</body>
+</html>
+{% endif %}

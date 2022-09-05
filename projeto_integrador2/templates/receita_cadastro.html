@@ -1,0 +1,196 @@
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}nome do site{% endblock %}</title>
+</head>
+
+<nav>
+
+    <a href="/menu/receita/"> <button type="submit">Voltar</button> </a>
+</nav>  
+  
+<main>
+    
+    <h2>Receita cadastro</h2>
+    <form action="submit" method="POST">{% csrf_token %}
+        <div>
+            <fieldset class="module aligned ">
+    
+                
+    
+                <div class="form-row field-titulo">
+
+                    
+                    
+                        <div >
+                            
+                            
+                                <label for="id_titulo">Título:</label>
+                                
+                                    <input type="text" name="titulo" class="vTextField" maxlength="50" id="id_titulo" value="{{evento_receita.titulo}}" required  >
+                                
+                            
+                            
+                        </div>
+                    
+                </div>
+            
+                <div class="form-row field-recorrente">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label for="id_recorrente">Recorrente:</label>
+                                
+                                    <select name="recorrente" id="id_recorrente">
+
+        
+          <option value="True">Sim</option>
+        
+          <option value="False" selected>Não</option>
+        
+        </select>
+                                
+                            
+                            
+                        </div>
+                    
+                </div>
+            
+                <div class="form-row field-produto">
+            
+            
+                    <div>
+                        
+                        
+                            <label class="required" for="id_produto">Produto:</label>
+                            
+                                <input type="text" name="produto" class="vTextField" maxlength="50" required id="id_produto" value="{{evento_receita.produto}}" >
+                            
+                        
+                        
+                    </div>
+                
+            </div>
+            
+                <div class="form-row field-valor">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label class="required" for="id_valor">Valor:</label>
+                                
+                                    <input type="number" name="valor" step="0.01" required id="id_valor" required>
+                                
+                            
+                            
+                        </div>
+                    
+                </div>
+            
+                <div class="form-row field-auto_data">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label for="id_auto_data">Data:</label>
+                                
+                                    <input type="date" name="auto_data"  id="id_auto_data" required>
+                                
+                            
+                            
+                        </div>
+                    
+                </div>
+            
+                <div class="form-row field-status">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label for="id_status">Status:</label>
+                                
+                                    <select name="status" id="id_status">
+
+        
+          <option value="True">Pendente</option>
+        
+          <option value="False" selected>Recebido</option>
+        
+        </select>
+                                
+                            
+                            
+                        </div>
+                    
+                </div>
+            
+                <div class="form-row field-total_receber">
+                    
+                    
+                        <div>
+                            
+                            
+                                <label for="id_total_receber">Total:</label>
+                                
+                                    <input type="number" name="total_receber" step="0.01" id="id_total_receber"  value="{{evento_receita.total_receber}}"  hidden>
+                                
+                            
+                            
+                        </div>
+                        
+                </div>
+            
+        </fieldset>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <input type="hidden" name="id" value="{{ evento_receita.id }}">
+        
+        <div class="submit-row">
+        
+            <div>
+          
+
+                <button type="submit">Salvar_</button></a>         
+                </div>
+        
+        
+        </div>
+        
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+
+    </form>    
+</main>
+</header>
+</body>
+</html>
+{% endif %}

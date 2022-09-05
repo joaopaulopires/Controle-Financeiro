@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <title>nome do site</title>
+</head>
+<body>
+    {# TODO: Register crispy_forms_tags #}
+
+
+
+   
+    <h2>Registrar Perfil </h2>
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="save" class="btn btn-primary">Save</button>
+    </form>
+
+</body>
+</html>
+

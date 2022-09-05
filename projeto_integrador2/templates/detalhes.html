@@ -1,0 +1,30 @@
+{% extends }
+
+{% block content %}
+
+<!--CAIXA SELEÇÃO MÊS - COMBOBOX-->
+
+<!--SALDO ***é um extends***-->
+
+<!--DETALHES-->
+<!--aqui virá uma tabela com filtro de todas as entradas do mês X-->
+
+<form class="row">
+    <label>Pesquisar Mês</label>
+      <input type="month" id="mes" name="mes-pesquisa" placeholder="Digite  mês">
+    <button type="submit">Pesquisar</button>
+</form>
+
+<h2> A MÊS PESQUISADO<u> {{ saldotot.termodapesquisa }} </u></h2>
+<br>
+<p> B {{ saldotot.saldo_receita }}</p>
+<p> C {{ saldotot.saldo_despesas }}</p>
+<p> D Ocorrências de Receita no mês {{ saldotot.query_rec }}</p>
+<p> E Ocorrências de Despesas no mês {{ saldotot.query_desp }}</p>
+<br>
+<h3> F RECEITA R$ {{ saldotot.tot_rec }}</h3>
+<H3> G DESPESA R$ {{ saldotot.tot_desp }}</H3>
+<br>
+<h1><b> SALDO MENSAL  <u>R$ {{ saldotot.saldo_mensal }}</u> </b></h1>
+
+{% endblock %}

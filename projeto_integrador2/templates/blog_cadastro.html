@@ -1,0 +1,151 @@
+
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}nome do site{% endblock %}</title>
+</head>
+
+<nav>
+
+    <a href="/menu/blog/"> <button type="submit">Voltar</button> </a>
+</nav>    
+<main>
+    
+    <h2>Blog registro</h2>
+    <form action="submit" method="POST">{% csrf_token %}
+        <div>
+                <fieldset class="module aligned ">
+    
+    
+    
+                        <div class="form-row field-titulo">
+                            
+                            
+                                <div>
+                                    
+                                    
+                                        <label for="id_titulo">Título:</label>
+                                        
+                                            <input type="text" name="titulo" class="vTextField" maxlength="50" id="id_titulo" value="{{ evento_blog.titulo }}" required>
+                                        
+                                    
+                                    
+                                </div>
+                            
+                        </div>
+                    
+                        <div class="form-row field-img">
+                            
+                            
+                                <div>
+                                    
+                                    
+                                        <label for="id_img">Imagem:</label>
+                                        
+                                            <input type="file" name="img" accept="images/*" id="id_img" value="{{ evento_blog.img }}">
+                                        
+                                    
+                                    
+                                </div>
+                            
+                        </div>
+                    
+                        <div class="form-row field-texto">
+                            
+                            
+                                <div>
+                                    
+                                    
+                                        <label for="id_texto">Texto:</label>
+                                        
+                                            <textarea name="texto" cols="40" rows="10" class="vLargeTextField" maxlength="200" id="id_texto" > {{ evento_blog.texto }}
+                </textarea>
+                                        
+                                    
+                                    
+                                </div>
+                            
+                        </div>
+                    
+                        <div class="form-row field-link">
+                            
+                            
+                                <div>
+                                    
+                                    
+                                        <label class="required" for="id_link">Link:</label>
+                                        
+                                            <input type="url" name="link" class="vURLField" maxlength="50" required id="id_link" value="{{ evento_blog.link }}">
+                                        
+                                    
+                                    
+                                </div>
+                            
+                        </div>
+                    
+                        <div class="form-row field-auto_data">
+                            
+                            
+                                <div>
+                                    
+                                    
+                                        <label for="id_auto_data">Data:</label>
+                                        
+                                            <input type="date" name="auto_data" class="vDateField" size="10" id="id_auto_data">
+                                        
+                                    
+                                    
+                                </div>
+                            
+                        </div>
+                    
+                </fieldset>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                <input type="hidden" name="id" value="{{ evento_blog.id }}">
+        
+        <div class="submit-row">
+        
+            <div>
+          
+
+                <button type="submit">Salvar</button></a>         
+                </div>
+        
+        
+        </div>
+        
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+          
+
+    </form>    
+</main>
+</header>
+</body>
+</html>
+{% endif %}

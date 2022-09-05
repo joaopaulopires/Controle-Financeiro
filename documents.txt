@@ -1,0 +1,4 @@
+https://django-allauth.readthedocs.io/en/latest/installation.html
+
+https://docs.djangoproject.com/en/4.0/topics/email/
+

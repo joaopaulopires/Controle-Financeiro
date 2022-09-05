@@ -1,0 +1,38 @@
+
+{% extends }
+
+{% block content %}
+
+<!--CAIXA SELEÇÃO MÊS - COMBOBOX-->
+
+<!--SALDO ***é um extends***-->
+
+<!--DETALHES-->
+<!--aqui virá uma tabela com filtro de todas as entradas do mês X-->
+
+<form class="row">
+    <label>Pesquisar Mês</label>
+      <input type="month" id="mes" name="mes-pesquisa" placeholder="Digite  mês">
+    <button type="submit">Pesquisar</button>
+</form>
+
+
+<h1>Receita | Despesa | </h1>
+<ul>
+{% for receita in object_list %}
+    <li>{{ receita.titulo }} - {{ receita.produto }} - {{ receita.valor }}</li>
+{% endfor %}
+</ul>
+<p> {{ receitateste }}</p>
+<p> {{ despesateste }}</p>
+<p> {{ termopesquisa }}</p>
+
+
+{% endblock %}
+
+
+
+
+
+
+

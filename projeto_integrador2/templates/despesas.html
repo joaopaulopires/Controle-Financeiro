@@ -1,0 +1,47 @@
+{% if user.is_authenticated %}
+<!--Página despesas-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}nome do site{% endblock %}</title>
+</head>
+
+<nav>
+
+    <a href="/menu/"> <button type="submit">Menu</button> </a>
+</nav>
+<div class="principal">
+    <h2>Despesas</h2>
+    <nav><a href="despesas_cadastro/"> <button type="button">Novo</button></a></nav>
+    <div>
+            <table>
+                <tr>
+                    <th>Protocolo</th>
+                    <th>Título</th>
+                    <th>Recorrente</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                    <th>Total pago</th>
+                </tr>
+                {% for evento_despesas in eventos %}
+                <tr>
+                    <td>{{ evento_despesas.id }}</td> <!--Id-->
+                    <td>{{ evento_despesas.titulo }}</td> <!--Produto-->
+                    <td>{{ evento_despesas.recorrente }}</td> <!--Recorrente-->
+                    <td>{{ evento_despesas.produto }}</td> <!--Produto-->
+                    <td>{{ evento_despesas.valor }}</td> <!--Valor-->
+                    <td>{{ evento_despesas.status }}</td> <!--Status-->
+                    <td>{{ evento_despesas.total_pago }}</td> <!--Total_pago-->
+                    <td><a href="despesas_cadastro/?id={{ evento_despesas.id }}">Editar</a></td>
+                    <td><a href="delete/{{ evento_despesas.id }}/">Excluir</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+    </div>
+</div>
+</header>
+</body>
+</html>
+{% endif %}

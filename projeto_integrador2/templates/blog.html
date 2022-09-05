@@ -1,0 +1,74 @@
+{% if user.is_authenticated %}
+<!--Página receita-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}nome do site{% endblock %}</title>
+</head>
+
+<body>
+
+{% load static %}
+<nav>
+
+    <a href="/menu/"> <button type="submit">Menu</button> </a>
+
+</nav>
+
+<div class="principal">
+    <h2>Blog</h2>
+    {% for group in request.user.groups.all %}
+    {% if group.name == 'administrador_blog' %}
+    
+
+    <nav><a href="blog_cadastro/"> <button type="button">Novo</button></a></nav>
+    {% endif %}    
+    {% endfor %}
+    <div>
+            <table>
+
+
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+
+                    <th>Imagem</th>
+                    <th>Link</th>
+                    <th>Texto</th>
+                </tr>
+                {% for evento_blog in eventos %}
+                <tr>
+                    <td>{{ evento_blog.id }}</td> 
+                    <td>{{ evento_blog.titulo }}</td> 
+
+
+                    
+
+                    <img src="{{ evento_blog.img.url }}" alt="texto" style="width:100px;height:100px;">
+                    <td>{{ evento_blog.texto }}</td>     
+           
+                    <td></td><a href="{{ evento_blog.link }}">link</a></td>
+                    
+
+                   
+                    
+                        {% for group in request.user.groups.all %}
+                        {% if group.name == 'administrador_blog' %}                  
+                            <td><a href="blog_cadastro/?id={{ evento_blog.id }}">Editar</a></td>
+                            <td><a href="delete/{{ evento_blog.id }}/">Excluir</a></td>
+                        {% endif %}    
+                        {% endfor %}
+                        
+                    
+                   
+                </tr>
+                {% endfor %}
+            </table>
+    </div>
+</div>
+
+</body>
+</html>
+{% endif  %}
